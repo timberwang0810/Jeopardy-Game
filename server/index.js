@@ -1,3 +1,5 @@
+const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
+const { getEventListeners } = require('events');
 const express = require('express');
 const app = express();
 const http = require('http');
@@ -11,6 +13,8 @@ const MIN_PLAYERS = 3;
 let isAnswering = false;
 let numPlayers = 0;
 let firstid = "";
+
+let game = {};
 
 app.use(express.static(__dirname + "/../client/"));
 app.use(express.static(__dirname + "/../node_modules/"));
@@ -32,6 +36,12 @@ const removeClient = socket => {
 
 io.on('connection', (socket) => {
     console.log('a user connected');
+    // fetch('http://jservice.io/api/random')
+    //     .then(response => response.json())
+    //     .then(data => {
+    //         console.log(data)
+    //     })
+    getQuestions();
     if (numPlayers > MAX_PLAYERS){
 
     }
@@ -91,6 +101,99 @@ io.on('connection', (socket) => {
         }
     });
 });
+
+const getQuestions = async () => {
+    // let categories = new Set();
+    // let i = 0;
+    // while (i < 6){
+    //     let response = fetch("http://jservice.io/api/random");
+    //     if (response.category != null 
+    //         && !categories.has(response.category.id)){
+    //         categories.push(response.category.id)
+    //         i++;
+    //     }
+    // }
+    let questions = {}
+    let categories = {}
+    let i = 0;
+    while (i < 6){
+        console.log("entered");
+        let category = await getRandomCategory();
+        console.log("got cat");
+        if (!(category.id in categories)){
+            let points = 200;
+            let clues = [];
+            const url = "http://jservice.io/api/clues";
+            while (points < 1200) {
+                console.log("start q");
+                const response = await fetch(url + "?value=" + points + "&category=" + category.id);
+                const rand_items = await response.json();
+                console.log(rand_items);
+                let items = rand_items
+                    .map(value => ({ value, sort: Math.random() }))
+                    .sort((a, b) => a.sort - b.sort)
+                    .map(({ value }) => value)
+                // console.log(items);
+                let clue = null;
+                for (let item of items){
+                    if (item.answer != null && item.answer !== "" 
+                        && item.question != null && item.question !== ""){
+                            clue = {question: item.question, 
+                                    answer: item.answer,
+                                    point: item.value};
+                            break;
+                        }
+                }
+                console.log("end q");
+                if (clue == null){
+                    break;
+                }
+                else{
+                    clues.push(clue);
+                    points += 200;
+                }
+            }
+            console.log(clues.length);
+            if (clues.length == 5){
+                categories[category.id] = category.title;
+                questions[category.id] = clues;
+                i++;
+            }
+        } 
+    }
+    game = questions;
+    console.log("-------GAME-------------\n" + JSON.stringify(game, null, 2));
+    return questions;
+}
+
+const getRandomCategory = async () => {
+    let result = null;
+    while (result == null){
+        const response = await fetch("http://jservice.io/api/random");
+        const data = await response.json();
+        console.log(data);
+        const res = data[0];
+        if (res.category != null
+            && res.category.id != null
+            && res.category.id > 0
+            && res.category.title != null
+            && res.category.title !== "") {
+            result = { id: res.category.id, title: res.category.title };
+            return result;
+        }  
+        
+    }
+    return result;
+}
+
+const shuffle = (array) => {
+    for (var i = array.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+}
 
 
 server.listen(3000, () => {
