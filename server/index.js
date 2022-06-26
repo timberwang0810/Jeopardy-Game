@@ -10,9 +10,11 @@ const io = new Server(server);
 const clients = {};
 const MAX_PLAYERS = 5
 const MIN_PLAYERS = 3;
+let isGameStarted = false;
 let isAnswering = false;
 let numPlayers = 0;
 let firstid = "";
+let hostid = "";
 
 let game = {};
 
@@ -36,6 +38,9 @@ const removeClient = socket => {
 
 io.on('connection', (socket) => {
     console.log('a user connected');
+    if (isGameStarted){
+        socket.disconnect();
+    }
     // fetch('http://jservice.io/api/random')
     //     .then(response => response.json())
     //     .then(data => {
@@ -65,6 +70,20 @@ io.on('connection', (socket) => {
     //     data.id = id;
     //     socket.broadcast.emit("moving", data);
     // });
+
+    socket.on("game.starting", () => {
+        console.log("server: start game");
+        isGameStarted = true;
+        io.emit("game.started")
+    })
+
+    socket.on("host.claiming", () => {
+        console.log("someone is claiming host")
+        if (hostid === ""){
+            game.hostid = socket.id;
+            io.emit("host.assigned", game);
+        }
+    })
 
     socket.on("answering", () => {
         console.log("click");
@@ -161,9 +180,13 @@ const getQuestions = async () => {
             }
         } 
     }
-    game = questions;
+    for (const [key,val] of Object.entries(questions)){
+        const catTitle = categories[key];
+        game[catTitle] = val;
+    }
+    // game = questions;
     console.log("-------GAME-------------\n" + JSON.stringify(game, null, 2));
-    return questions;
+    return game;
 }
 
 const getRandomCategory = async () => {
