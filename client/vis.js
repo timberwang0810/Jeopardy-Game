@@ -25,33 +25,33 @@ function createTable(data){
     column.append('div')
         .attr('class', 'cell question')
         .attr('value', '200')
-        .text('200')
+        .text('$200')
 
     column.append('div')
         .attr('class', 'cell question')
         .attr('value', '400')
-        .text('400')
+        .text('$400')
 
     column.append('div')
         .attr('class', 'cell question')
         .attr('value', '600')
-        .text('600')
+        .text('$600')
 
     column.append('div')
         .attr('class', 'cell question')
         .attr('value', '800')
-        .text('800')
+        .text('$800')
 
     column.append('div')
         .attr('class', 'cell question')
         .attr('value', '1000')
-        .text('1000')
+        .text('$1000')
 
  
 
 }
 
-createTable(test)
+createTable(test.game)
 
 console.log(test)
 
