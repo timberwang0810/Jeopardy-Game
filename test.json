@@ -1,164 +1,143 @@
 {
-    "u.s. place names": [
+    "hostid": 12345,
+    "game": [
         {
-            "question": "There's a canal named this in Mesa County, Colorado, a long way from the famous one in New York State",
-            "answer": "Erie",
-            "point": 200
+            "200": {
+                "question": "Appropriate shade of blue to wear at 12 A.M.",
+                "answer": "Midnight blue"
+            },
+            "400": {
+                "question": "Fry or saute",
+                "answer": "Brown"
+            },
+            "600": {
+                "question": "Some tubers in the Andes have meat this color that's also featured on a heart-shaped U.S. medal",
+                "answer": "purple"
+            },
+            "800": {
+                "question": "This reddish-brown color shares its name with a region in southeast France known for red wines",
+                "answer": "Burgundy"
+            },
+            "1000": {
+                "question": "This 1 of the 8 colors in original Crayola boxes is also the color of the rainbow with the shortest wavelength",
+                "answer": "violet"
+            },
+            "category": "colors"
         },
         {
-            "question": "This inlet on Oahu was named for the gems once harvested there",
-            "answer": "Pearl Harbor",
-            "point": 400
+            "200": {
+                "question": "Though it's 150 miles from the Atlantic, this capital of New York has an active port",
+                "answer": "Albany"
+            },
+            "400": {
+                "question": "This northernmost New York City borough boasts the Rose Hill campus of Fordham University",
+                "answer": "the Bronx"
+            },
+            "600": {
+                "question": "The Maid of the Mist is a fixture at this natural wonder located about 20 miles north of Buffalo",
+                "answer": "Niagara Falls"
+            },
+            "800": {
+                "question": "The museum for a N.Y. prison known by this double-talk name includes a replica electric chair made by prisoners",
+                "answer": "Sing Sing"
+            },
+            "1000": {
+                "question": "This liberal arts college that went co-ed in 1969 is located in Poughkeepsie",
+                "answer": "Vassar (College)"
+            },
+            "category": "around new york state"
         },
         {
-            "question": "3 states are named for British kings:  North Carolina, South Carolina & this other southern state",
-            "answer": "Georgia",
-            "point": 600
+            "200": {
+                "question": "Recognize the voice of this country star?",
+                "answer": "(Blake) Shelton"
+            },
+            "400": {
+                "question": "After announcing that the \"Dog Days are Over\", this British band urged us to \"Shake It Out, Shake It Out\"",
+                "answer": "Florence and the Machine"
+            },
+            "600": {
+                "question": "Not surprisingly, he serenaded his bride at their 2013 wedding with the song heard here",
+                "answer": "John Legend"
+            },
+            "800": {
+                "question": "In 2007 her song \"No One\" hit no. 1 on Billboard's pop & R&B charts",
+                "answer": "Alicia Keys"
+            },
+            "1000": {
+                "question": "With his 2014 album \"Paula\" & tracks like \"Get Her Back\", he hoped to get back estranged wife Paula Patton",
+                "answer": "Robin Thicke"
+            },
+            "category": "today's music"
         },
         {
-            "question": "Named for Ralph Edwards' old radio show, this New Mexico city is called \"T or C\" for short",
-            "answer": "Truth or Consequences",
-            "point": 800
+            "200": {
+                "question": "Ideally, witness to this document shouldn't be named in its bequests",
+                "answer": "a will"
+            },
+            "400": {
+                "question": "A target witness is one the government calls before this jury & really wants to indict",
+                "answer": "the grand jury"
+            },
+            "600": {
+                "question": "In olden law, compurgators were these witnesses who swore to faith in the accused, not to knowing the facts",
+                "answer": "character witnesses"
+            },
+            "800": {
+                "question": "(Jimmy of the Clue Crew reports from a courtroom.)  A witness doesn't have to swear to tell the truth; some, for reasons of religion or lack of religion, prefer this word, also an option in the presidential oath of office",
+                "answer": "affirm"
+            },
+            "1000": {
+                "question": "It's in plain sight that the U.S. law enforcement service is responsible for witness security",
+                "answer": "the U.S. Marshals Service"
+            },
+            "category": "can i get a witness?"
         },
         {
-            "question": "Grant County, Kansas is named for President Grant, as is this county seat",
-            "answer": "Ulysses",
-            "point": 1000
-        }
-    ],
-    "\"l.b.\"s": [
-        {
-            "question": "Even before Thomas Edison, Sir Joseph Wilson Swan was aglow with his invention of this",
-            "answer": "light bulb",
-            "point": 200
+            "200": {
+                "question": "This 1995 smash was inspired by the Pixar short film \"Tin Toy\"",
+                "answer": "<i>Toy Story</i>"
+            },
+            "400": {
+                "question": "The son of a virtual world programmer ends up in the world that his dad (Jeff Bridges) created in this sequel",
+                "answer": "<i>Tron: Legacy</i>"
+            },
+            "600": {
+                "question": "\"There was only one man left in the family, and the mission was to save him\" was a tagline to this 1998 film",
+                "answer": "<i>Saving Private Ryan</i>"
+            },
+            "800": {
+                "question": "Eddie Murphy got the role of police detective Axel Foley in this 1984 blockbuster after Sly Stallone bowed out",
+                "answer": "<i>Beverly Hills Cop</i>"
+            },
+            "1000": {
+                "question": "In the third entry in this series, from 2008, Troy & Gabriella might be headed for different colleges--time to sing!",
+                "answer": "<i>High School Musical</i>"
+            },
+            "category": "no. 1 at the box office"
         },
         {
-            "question": "And now the weather forecast: tonight expect these gentle winds of 4 to 7 miles per hour",
-            "answer": "light breezes",
-            "point": 400
-        },
-        {
-            "question": "Herbie, the endearing Volkswagen in a classic Disney film",
-            "answer": "<i>The Love Bug</i>",
-            "point": 600
-        },
-        {
-            "question": "Oscar-nominated for her role in \"Goodfellas\", she went on to play Dr. Jennifer Melfi on \"The Sopranos\"",
-            "answer": "Lorraine Bracco",
-            "point": 800
-        },
-        {
-            "question": "In 1893 this horticulturist published his first nursery catalog offering his \"New Creations in Fruits and Flowers\"",
-            "answer": "Luther Burbank",
-            "point": 1000
-        }
-    ],
-    "pop go the lyrics!": [
-        {
-            "question": "This movie theme says, \"kick off your Sunday shoes. Please, Louise, pull me off-a my knees\"",
-            "answer": "\"Footloose\"",
-            "point": 200
-        },
-        {
-            "question": "As Billy Joel put it, \"everybody's talkin' 'bout the new sound / funny, but it's still\" this",
-            "answer": "\"Still Rock & Roll To Me\"",
-            "point": 400
-        },
-        {
-            "question": "It's the 2-word title of the Lady Gaga song that includes \"ro mah, ro-mah-mah, gaga, ooh-la-la!\"",
-            "answer": "\"Bad Romance\"",
-            "point": 600
-        },
-        {
-            "question": "From this 1991 hit: \"I thought that I heard you laugh-ing, I thought that I heard you sing, I think, I thought I saw you try\"",
-            "answer": "\"Losing My Religion\"",
-            "point": 800
-        },
-        {
-            "question": "This Elvis song says, \"we're caught in a trap, I can't walk out\"",
-            "answer": "\"Suspicious Minds\"",
-            "point": 1000
-        }
-    ],
-    "go ahead... make my car": [
-        {
-            "question": "You can bug out in this automaker's Jetta",
-            "answer": "Volkswagen",
-            "point": 200
-        },
-        {
-            "question": "Be an Alfa dog & hop in its 2-seat 8c Spider",
-            "answer": "Alfa Romeo",
-            "point": 400
-        },
-        {
-            "question": "This Korean brand has \"Soul\"",
-            "answer": "Kia",
-            "point": 600
-        },
-        {
-            "question": "A convertible 2013 Phantom from this maker can fetch more than $470,000",
-            "answer": "Rolls-Royce",
-            "point": 800
-        },
-        {
-            "question": "The Roadster, an electric car from this new company named for an inventor, goes 0 to 60 in 3.7 seconds",
-            "answer": "Tesla",
-            "point": 1000
-        }
-    ],
-    "\"-ary\"": [
-        {
-            "question": "Given free as a gift, or describing a remark like, \"you look good!\"",
-            "answer": "complimentary",
-            "point": 200
-        },
-        {
-            "question": "A minute blood vessel",
-            "answer": "a capillary",
-            "point": 400
-        },
-        {
-            "question": "A pro soldier hired to serve in a foreign army",
-            "answer": "a mercenary",
-            "point": 600
-        },
-        {
-            "question": "A trustee of property has this type of \"responsibility\", the duty of acting in good faith",
-            "answer": "fiduciary",
-            "point": 800
-        },
-        {
-            "question": "If you wonder what kind of man is up for this insurance job that computes premiums based on probabilities, here's one",
-            "answer": "an actuary",
-            "point": 1000
-        }
-    ],
-    "the two-thousand year old man": [
-        {
-            "question": "(Carl Reiner & Mel Brooks present the clue.)\"Of all the monarchs you've known, who was the most impressive?\"\"That's easy.  It's this Russian empress who was born in 1729.  She had such great legs!  And, boy, what a way with horses\"",
-            "answer": "Catherine (the Great)",
-            "point": 200
-        },
-        {
-            "question": "(Carl Reiner & Mel Brooks present the clue.)\"What was one of your best times?\"\"One of my best times was sitting around with this guy in Venice.  He'd tell me stories about going to China, and I'd say, 'Don't mention the part about spaghetti and gunpowder.  They don't go good together'\"",
-            "answer": "Marco Polo",
-            "point": 400
-        },
-        {
-            "question": "(Carl Reiner & Mel Brooks present the clue.)\"You have worked with some of our great presidents.\"\"Mm-hmm.\"\"Who were they?  Go back to the first.\"\"Washington.  He used to wear his wig cockeye.  I straightened him out.  I straightened out his wooden teeth.  But Wilson--Woodrow Wilson took my advice.  I said, 'Woody, you're making too many points in this declaration.  How many points do you really need?'\"",
-            "answer": "14",
-            "point": 600
-        },
-        {
-            "question": "(Carl Reiner & Mel Brooks present the clue.)\"What was your most annoying job?\"\"Well, I was a scrivener for this poet who couldn't spell.  The first line of his prologue, he spells \"April\" like this--\"A-P-R-I-L-L-E.  That's how he spelled 'April'\"",
-            "answer": "Chaucer",
-            "point": 800
-        },
-        {
-            "question": "(Carl Reiner & Mel Brooks present the clue.)\"Attila the Hun--was he really as rotten as they say?\"\"Rottener.  You never addressed him by his three-word nickname.  You always said, 'Hey, you're looking good today.  Hey', stuff like that.  But you never called him by his three-word nickname.  That's the clue--three-word nickname\"",
-            "answer": "\"Scourge of God\"",
-            "point": 1000
+            "200": {
+                "question": "Queen Victoria married this man in an elaborate ceremony in 1840",
+                "answer": "Prince Albert"
+            },
+            "400": {
+                "question": "The object of this dice game is to move all 15 stones from the triangles & take them off the board",
+                "answer": "backgammon"
+            },
+            "600": {
+                "question": "From the Latin for \"to come round\", it's what you do when you want to avoid something",
+                "answer": "circumvent"
+            },
+            "800": {
+                "question": "If you're on the \"horns\" of one of these situations with unpleasant options, good luck with your choice",
+                "answer": "dilemma"
+            },
+            "1000": {
+                "question": "A European car maker, or an authoritative decree",
+                "answer": "fiat"
+            },
+            "category": "a, b, c, d then f"
         }
     ]
 }
