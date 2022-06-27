@@ -1,0 +1,140 @@
+[
+    {
+        "category": "u.s. place names",
+        "200": {
+            "question": "There's a canal named this in Mesa County, Colorado, a long way from the famous one in New York State",
+            "answer": "Erie"
+        },
+        "400": {
+            "question": "This inlet on Oahu was named for the gems once harvested there",
+            "answer": "Pearl Harbor"
+        },
+        "600": {
+            "question": "3 states are named for British kings:  North Carolina, South Carolina & this other southern state",
+            "answer": "Georgia"
+        },
+        "800": {
+            "question": "Named for Ralph Edwards' old radio show, this New Mexico city is called \"T or C\" for short",
+            "answer": "Truth or Consequences"
+        },
+        "1000": {
+            "question": "Grant County, Kansas is named for President Grant, as is this county seat",
+            "answer": "Ulysses"
+        }
+    },
+    {
+        "category": "\"l.b.\"s",
+        "200": {
+            "question": "Even before Thomas Edison, Sir Joseph Wilson Swan was aglow with his invention of this",
+            "answer": "light bulb"
+        },
+        "400":{
+            "question": "And now the weather forecast: tonight expect these gentle winds of 4 to 7 miles per hour",
+            "answer": "light breezes"
+        },
+        "600": {
+            "question": "Herbie, the endearing Volkswagen in a classic Disney film",
+            "answer": "<i>The Love Bug</i>"
+        },
+        "800": {
+            "question": "Oscar-nominated for her role in \"Goodfellas\", she went on to play Dr. Jennifer Melfi on \"The Sopranos\"",
+            "answer": "Lorraine Bracco"
+        },
+        "1000": {
+            "question": "In 1893 this horticulturist published his first nursery catalog offering his \"New Creations in Fruits and Flowers\"",
+            "answer": "Luther Burbank"
+        }
+    },
+    {
+        "category": "pop go the lyrics!",
+        "200": {
+            "question": "This movie theme says, \"kick off your Sunday shoes. Please, Louise, pull me off-a my knees\"",
+            "answer": "\"Footloose\""
+        },
+        "400": {
+            "question": "As Billy Joel put it, \"everybody's talkin' 'bout the new sound / funny, but it's still\" this",
+            "answer": "\"Still Rock & Roll To Me\""
+        },
+        "600": {
+            "question": "It's the 2-word title of the Lady Gaga song that includes \"ro mah, ro-mah-mah, gaga, ooh-la-la!\"",
+            "answer": "\"Bad Romance\""
+        },
+        "800": {
+            "question": "From this 1991 hit: \"I thought that I heard you laugh-ing, I thought that I heard you sing, I think, I thought I saw you try\"",
+            "answer": "\"Losing My Religion\""
+        },
+        "1000": {
+            "question": "This Elvis song says, \"we're caught in a trap, I can't walk out\"",
+            "answer": "\"Suspicious Minds\""
+        }
+    },
+    {
+        "category": "go ahead... make my car",
+        "200": {
+            "question": "You can bug out in this automaker's Jetta",
+            "answer": "Volkswagen"
+        },
+        "400": {
+            "question": "Be an Alfa dog & hop in its 2-seat 8c Spider",
+            "answer": "Alfa Romeo"
+        },
+        "600": {
+            "question": "This Korean brand has \"Soul\"",
+            "answer": "Kia"
+        },
+        "800": {
+            "question": "A convertible 2013 Phantom from this maker can fetch more than $470,000",
+            "answer": "Rolls-Royce"
+        },
+        "1000": {
+            "question": "The Roadster, an electric car from this new company named for an inventor, goes 0 to 60 in 3.7 seconds",
+            "answer": "Tesla"
+        }
+    },
+    {
+        "category": "\"-ary\"",
+        "200": {
+            "question": "Given free as a gift, or describing a remark like, \"you look good!\"",
+            "answer": "complimentary"
+        },
+        "400": {
+            "question": "A minute blood vessel",
+            "answer": "a capillary"
+        },
+        "600": {
+            "question": "A pro soldier hired to serve in a foreign army",
+            "answer": "a mercenary"
+        },
+        "800": {
+            "question": "A trustee of property has this type of \"responsibility\", the duty of acting in good faith",
+            "answer": "fiduciary"
+        },
+        "1000": {
+            "question": "If you wonder what kind of man is up for this insurance job that computes premiums based on probabilities, here's one",
+            "answer": "an actuary"
+        }
+    },
+    {
+        "category": "the two-thousand year old man",
+        "200": {
+            "question": "(Carl Reiner & Mel Brooks present the clue.)\"Of all the monarchs you've known, who was the most impressive?\"\"That's easy.  It's this Russian empress who was born in 1729.  She had such great legs!  And, boy, what a way with horses\"",
+            "answer": "Catherine (the Great)"
+        },
+        "400": {
+            "question": "(Carl Reiner & Mel Brooks present the clue.)\"What was one of your best times?\"\"One of my best times was sitting around with this guy in Venice.  He'd tell me stories about going to China, and I'd say, 'Don't mention the part about spaghetti and gunpowder.  They don't go good together'\"",
+            "answer": "Marco Polo"
+        },
+        "600": {
+            "question": "(Carl Reiner & Mel Brooks present the clue.)\"You have worked with some of our great presidents.\"\"Mm-hmm.\"\"Who were they?  Go back to the first.\"\"Washington.  He used to wear his wig cockeye.  I straightened him out.  I straightened out his wooden teeth.  But Wilson--Woodrow Wilson took my advice.  I said, 'Woody, you're making too many points in this declaration.  How many points do you really need?'\"",
+            "answer": "14"
+        },
+        "800": {
+            "question": "(Carl Reiner & Mel Brooks present the clue.)\"What was your most annoying job?\"\"Well, I was a scrivener for this poet who couldn't spell.  The first line of his prologue, he spells \"April\" like this--\"A-P-R-I-L-L-E.  That's how he spelled 'April'\"",
+            "answer": "Chaucer"
+        },
+        "1000": {
+            "question": "(Carl Reiner & Mel Brooks present the clue.)\"Attila the Hun--was he really as rotten as they say?\"\"Rottener.  You never addressed him by his three-word nickname.  You always said, 'Hey, you're looking good today.  Hey', stuff like that.  But you never called him by his three-word nickname.  That's the clue--three-word nickname\"",
+            "answer": "\"Scourge of God\""
+        }
+    }
+]
