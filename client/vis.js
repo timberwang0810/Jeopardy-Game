@@ -66,15 +66,15 @@ function createTable(data){
 	// on click call up question
 	const mclick = function(){
         const question = data.filter(d => d.category==this.getAttribute("category"))[0][this.getAttribute('value')].question
-        d3.select('.textbox').text(question)
+        d3.select('.textbox').html(question)
 	}
     // on double click call up answer
     const dblclick = function(){
         const answer = data.filter(d => d.category==this.getAttribute("category"))[0][this.getAttribute('value')].answer
-        d3.select('.textbox').text(answer)
+        d3.select('.textbox').html(answer)
 	}
     const clear = function(){
-        d3.select('.textbox').text('')
+        d3.select('.textbox').html('')
     }
 
     d3.select('#clear').on('click', clear)
