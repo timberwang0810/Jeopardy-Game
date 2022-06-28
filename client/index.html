@@ -5,87 +5,32 @@
     <title>Socket.IO chat</title>
     <script src="/socket.io/socket.io.js"></script>
     <script src="script.js"></script>
-    <style>
-        body {
-            margin: 0;
-            padding-bottom: 3rem;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        }
-
-        #form {
-            background: rgba(0, 0, 0, 0.15);
-            padding: 0.25rem;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            display: flex;
-            height: 3rem;
-            box-sizing: border-box;
-            backdrop-filter: blur(10px);
-        }
-
-        #input {
-            border: none;
-            padding: 0 1rem;
-            flex-grow: 1;
-            border-radius: 2rem;
-            margin: 0.25rem;
-        }
-
-        #input:focus {
-            outline: none;
-        }
-
-        #form>button {
-            background: #333;
-            border: none;
-            padding: 0 1rem;
-            margin: 0.25rem;
-            border-radius: 3px;
-            outline: none;
-            color: #fff;
-        }
-
-        #messages {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        #messages>li {
-            padding: 0.5rem 1rem;
-        }
-
-        #messages>li:nth-child(odd) {
-            background: #efefef;
-        }
-        .hidden{
-            display: none;
-        }
-        .shown{
-            display: block;
-        }
-    </style>
+    <script src="vis.js" type="module"></script>
+    <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
+    <br>
+    <div style="text-align: center;">
+        <img src="jeopardy_logo.png" width="350">
+    </div>
+    <br>
+    <div class="js-custom-table" style="text-align: center;"></div>
+    <br>
+    <div class="textbox"></div>
+    <br>
+    <button id="clear" type="button">Clear</button>
     <!-- <ul id="messages"></ul>
     <form id="form" action="">
         <input id="input" autocomplete="off" /><button>Send</button>
     </form> -->
-    <div>
-        <p id="msg" hidden="false">Waiting for other players and host...</p>   
-    </div>
-    
-    <div id="buttons"> 
-        <button id="claim_host" type="button" disabled= "true" class="hidden">Claim host</button>
-        <button id="correct" type="button" disabled="true" class="hidden">Correct</button>
-        <button id="incorrect" type="button" disabled="true" class="hidden">Incorrect</button>
-        <button id="answer" type="button" disabled="true" class="hidden">Answer</button>
-        <button id="start_game" type="button" disabled="true" class="shown">Start Game</button>
-    </div>
+    <p id="wait" hidden="false">Waiting for other players and host...</p>
+    <button id="answer" type="button">ANSWER</button>
+    <button id="start_game" 
+            type="button" 
+            hidden="true" 
+            disabled="true">Start Game</button>
+    Click for question, doubleclick for answer.
 
 </body>
-
 </html>
