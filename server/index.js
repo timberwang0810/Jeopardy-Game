@@ -10,11 +10,13 @@ const io = new Server(server);
 const clients = {};
 const MAX_PLAYERS = 5
 const MIN_PLAYERS = 3;
+let isGameStarted = false;
 let isAnswering = false;
 let numPlayers = 0;
 let firstid = "";
+let hostid = "";
 
-let game = {};
+let game = [];
 
 app.use(express.static(__dirname + "/../client/"));
 app.use(express.static(__dirname + "/../node_modules/"));
@@ -36,6 +38,9 @@ const removeClient = socket => {
 
 io.on('connection', (socket) => {
     console.log('a user connected');
+    if (isGameStarted){
+        socket.disconnect();
+    }
     // fetch('http://jservice.io/api/random')
     //     .then(response => response.json())
     //     .then(data => {
@@ -65,6 +70,22 @@ io.on('connection', (socket) => {
     //     data.id = id;
     //     socket.broadcast.emit("moving", data);
     // });
+
+    socket.on("game.starting", () => {
+        console.log("server: start game");
+        isGameStarted = true;
+        io.emit("game.started")
+    })
+
+    socket.on("host.claiming", () => {
+        console.log("someone is claiming host")
+        if (hostid === ""){
+            io.emit("host.assigned", {
+                hostid: socket.id,
+                game: game
+            });
+        }
+    })
 
     socket.on("answering", () => {
         console.log("click");
@@ -113,7 +134,7 @@ const getQuestions = async () => {
     //         i++;
     //     }
     // }
-    let questions = {}
+    let questions = []
     let categories = {}
     let i = 0;
     while (i < 6){
@@ -122,13 +143,13 @@ const getQuestions = async () => {
         console.log("got cat");
         if (!(category.id in categories)){
             let points = 200;
-            let clues = [];
+            let clues = {};
             const url = "http://jservice.io/api/clues";
             while (points < 1200) {
                 console.log("start q");
                 const response = await fetch(url + "?value=" + points + "&category=" + category.id);
                 const rand_items = await response.json();
-                console.log(rand_items);
+                //console.log(rand_items);
                 let items = rand_items
                     .map(value => ({ value, sort: Math.random() }))
                     .sort((a, b) => a.sort - b.sort)
@@ -139,8 +160,7 @@ const getQuestions = async () => {
                     if (item.answer != null && item.answer !== "" 
                         && item.question != null && item.question !== ""){
                             clue = {question: item.question, 
-                                    answer: item.answer,
-                                    point: item.value};
+                                    answer: item.answer};
                             break;
                         }
                 }
@@ -149,21 +169,28 @@ const getQuestions = async () => {
                     break;
                 }
                 else{
-                    clues.push(clue);
+                    clues[points] = clue;
                     points += 200;
                 }
             }
-            console.log(clues.length);
-            if (clues.length == 5){
+            if (Object.keys(clues).length == 5){
                 categories[category.id] = category.title;
-                questions[category.id] = clues;
+                clues.category = category.title;
+                questions.push(clues);
+                console.log("pushed: " + questions.length);
                 i++;
             }
         } 
     }
+    // for (const [key,val] of Object.entries(questions)){
+    //     const catTitle = categories[key];
+    //     game[catTitle] = val;
+    // }
     game = questions;
-    console.log("-------GAME-------------\n" + JSON.stringify(game, null, 2));
-    return questions;
+    for (const obj of questions){
+        console.log(JSON.stringify(obj, null, 2));
+    }
+    return game;
 }
 
 const getRandomCategory = async () => {
