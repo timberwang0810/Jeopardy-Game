@@ -104,3 +104,9 @@ body {
     font-size: 20px;
     color: #ff5e00;
 }
+.hidden{
+    display: none;
+}
+.shown{
+    display: block;
+}

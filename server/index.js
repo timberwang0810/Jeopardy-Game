@@ -17,6 +17,7 @@ let firstid = "";
 let hostid = "";
 
 let game = [];
+let numIncorrect = 0;
 
 app.use(express.static(__dirname + "/../client/"));
 app.use(express.static(__dirname + "/../node_modules/"));
@@ -53,6 +54,9 @@ io.on('connection', (socket) => {
     let id = socket.id;
 
     addClient(socket);
+    socket.broadcast.emit("someone.joined", {
+        id: id
+    });
     if (numPlayers == 0){
         socket.emit("first.assign");
         firstid = id;
@@ -87,6 +91,11 @@ io.on('connection', (socket) => {
         }
     })
 
+    socket.on("allow_answer", () => {
+        numIncorrect = 0;
+        socket.broadcast.emit("can_answer");
+    })
+    
     socket.on("answering", () => {
         console.log("click");
         if (isAnswering){
@@ -98,11 +107,35 @@ io.on('connection', (socket) => {
         });
     })
 
+    socket.on("answer.correct", (data) => {
+        console.log("correct");
+        numIncorrect = 0;
+        io.emit("points.awarded", {
+            id: socket.id,
+            points: data.points
+        });
+    })
+
+    socket.on("answer.incorrect", (data) => {
+        console.log("incorrect");
+        numIncorrect++;
+        io.emit("points.deducted", {
+            id: socket.id,
+            points: data.points
+        });
+        if (numIncorrect >= Object.keys(clients).length){
+            numIncorrect = 0;
+            io.emit("next_round");
+        }
+    })
+
     socket.on("disconnect", () => {
         numPlayers--;
         console.log("a user disconnected, num players: " + numPlayers);
         removeClient(socket);
-        socket.broadcast.emit("clientdisconnect", id);
+        socket.broadcast.emit("someone.left", {
+            id: id
+        });
         if (numPlayers == 0){
             firstid = "";
         }

@@ -4,7 +4,6 @@
 <head>
     <title>Socket.IO chat</title>
     <script src="/socket.io/socket.io.js"></script>
-    <script src="script.js"></script>
     <script src="vis.js" type="module"></script>
     <link rel="stylesheet" href="index.css">
 </head>
@@ -17,20 +16,20 @@
     <br>
     <div class="js-custom-table" style="text-align: center;"></div>
     <br>
-    <div class="textbox"></div>
-    <br>
-    <button id="clear" type="button">Clear</button>
-    <!-- <ul id="messages"></ul>
-    <form id="form" action="">
-        <input id="input" autocomplete="off" /><button>Send</button>
-    </form> -->
-    <p id="wait" hidden="false">Waiting for other players and host...</p>
-    <button id="answer" type="button">ANSWER</button>
-    <button id="start_game" 
-            type="button" 
-            hidden="true" 
-            disabled="true">Start Game</button>
+    <div>
+        <p id="msg" class="shown">Waiting for other players and host...</p>
+    </div>
+    
+    <div id="buttons">
+        <button id="claim_host" type="button" disabled="true" class="hidden">Claim host</button>
+        <button id="allow" type="button" disabled="true" class="hidden">Allow to Answer</button>
+        <button id="correct" type="button" disabled="true" class="hidden">Correct</button>
+        <button id="incorrect" type="button" disabled="true" class="hidden">Incorrect</button>
+        <button id="answer" type="button" disabled="true" class="hidden">Answer</button>
+        <button id="start_game" type="button" disabled="true" class="hidden">Start Game</button>
+    </div>
     Click for question, doubleclick for answer.
+    <script src="script.js"></script>
 
 </body>
 </html>
