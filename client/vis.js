@@ -1,10 +1,9 @@
 import * as d3 from "https://cdn.skypack.dev/d3@7";
 
-import test from './test.json' assert {type: 'json'};
+//import test from './test.json' assert {type: 'json'};
 
 
-function createTable(data){
-
+export default function createTable(data){
     const table = d3.select('.js-custom-table')
 
     // add divs
@@ -66,15 +65,15 @@ function createTable(data){
 	// on click call up question
 	const mclick = function(){
         const question = data.filter(d => d.category==this.getAttribute("category"))[0][this.getAttribute('value')].question
-        d3.select('.textbox').text(question)
+        d3.select('.textbox').html(question)
 	}
     // on double click call up answer
     const dblclick = function(){
         const answer = data.filter(d => d.category==this.getAttribute("category"))[0][this.getAttribute('value')].answer
-        d3.select('.textbox').text(answer)
+        d3.select('.textbox').html(answer)
 	}
     const clear = function(){
-        d3.select('.textbox').text('')
+        d3.select('.textbox').html('')
     }
 
     d3.select('#clear').on('click', clear)
@@ -86,7 +85,7 @@ function createTable(data){
 }
 
 
-createTable(test.game)
+//createTable(test.game)
 
-console.log(test)
+//console.log(test)
 

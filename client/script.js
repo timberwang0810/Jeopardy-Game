@@ -1,3 +1,5 @@
+import createTable from './vis.js';
+
 var socket = io.connect('http://localhost:3000');
 
 let isReady = false;
@@ -104,6 +106,7 @@ socket.on("host.assigned", (data) => {
     claimHost.classList.remove("shown");
     claimHost.classList.add("hidden");
     game = data.game;
+    createTable(game);
     if (data.hostid == socket.id){
         role = "host";
         // TODO: HOST SCREEN

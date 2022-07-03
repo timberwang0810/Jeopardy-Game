@@ -47,7 +47,6 @@ io.on('connection', (socket) => {
     //     .then(data => {
     //         console.log(data)
     //     })
-    getQuestions();
     if (numPlayers > MAX_PLAYERS){
 
     }
@@ -84,11 +83,15 @@ io.on('connection', (socket) => {
     socket.on("host.claiming", () => {
         console.log("someone is claiming host")
         if (hostid === ""){
-            io.emit("host.assigned", {
-                hostid: socket.id,
-                game: game
-            });
+            getQuestions()
+                .then((game) => {
+                    io.emit("host.assigned", {
+                        hostid: socket.id,
+                        game: game
+                    });
+                });  
         }
+         
     })
 
     socket.on("allow_answer", () => {
