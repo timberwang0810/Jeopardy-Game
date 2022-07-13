@@ -83,6 +83,7 @@ io.on('connection', (socket) => {
     socket.on("host.claiming", () => {
         console.log("someone is claiming host")
         if (hostid === ""){
+            hostid = socket.id
             getQuestions()
                 .then((game) => {
                     io.emit("host.assigned", {
@@ -114,7 +115,7 @@ io.on('connection', (socket) => {
         console.log("correct");
         numIncorrect = 0;
         io.emit("points.awarded", {
-            id: socket.id,
+            id: data.answerer,
             points: data.points
         });
     })
@@ -123,7 +124,7 @@ io.on('connection', (socket) => {
         console.log("incorrect");
         numIncorrect++;
         io.emit("points.deducted", {
-            id: socket.id,
+            id: data.answerer,
             points: data.points
         });
         if (numIncorrect >= Object.keys(clients).length){

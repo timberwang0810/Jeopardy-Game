@@ -1,4 +1,5 @@
 import createTable from './vis.js';
+import * as d3 from "https://cdn.skypack.dev/d3@7";
 
 var socket = io.connect('http://localhost:3000');
 
@@ -15,6 +16,8 @@ let role = "";
 var game = [];
 var players = {};
 var points = {};
+var currPoint = 0;
+var answerer = "";
 
 let canAnswer = false;
 
@@ -41,19 +44,23 @@ window.onload = function () {
     allow.onclick = (e) => {
         console.log("people can answer!");
         socket.emit("allow_answer");
+        this.disabled = true;
     }
     yes.onclick = (e) => {
         console.log("correct!");
         //TODO: GET CURRENT QUESTIONS AND ADD POINTS TO LOCAL CLIENT
         socket.emit("answer.correct", {
-            points: 200 //TODO CHANGE TO ACTUAL USER POINT
+            answerer: answerer,
+            points: points[answerer] + currPoint //TODO CHANGE TO ACTUAL USER POINT
         });
     }
     no.onclick = (e) => {
         console.log("incorrect!");
+        points[answerer] = points[answerer] - currPoint;
         //TODO: GET CURRENT QUESTIONS AND SUBTRACT POINTS TO LOCAL CLIENT
         socket.emit("answer.incorrect", {
-            points: 0 //TODO CHANGE TO ACTUAL USER POINT
+            answerer: answerer,
+            points: points[answerer] - currPoint //TODO CHANGE TO ACTUAL USER POINT
         });
     }
     answer.onclick = (e) => {
@@ -116,6 +123,26 @@ socket.on("host.assigned", (data) => {
         no.classList.add("shown");
         allow.classList.remove("hidden");
         allow.classList.add("shown");
+        // on click call up question
+        const mclick = function () {
+            const question = game.filter(d => d.category == this.getAttribute("category"))[0][this.getAttribute('value')].question
+            d3.select('.textbox').html(question)
+            currPoint = parseInt(this.getAttribute('value'));
+            allow.disabled = false
+        }
+        // on double click call up answer
+        const dblclick = function () {
+            const answer = game.filter(d => d.category == this.getAttribute("category"))[0][this.getAttribute('value')].answer
+            d3.select('.textbox').html(answer)
+        }
+        const clear = function () {
+            d3.select('.textbox').html('')
+        }
+
+        d3.select('#clear').on('click', clear)
+
+        const cells = d3.selectAll('.question')
+        cells.on('click', mclick).on('dblclick', dblclick);
         
     }
     else{
@@ -150,6 +177,11 @@ socket.on("someone.answering", (data) => {
     }
     else{
         answer.style.background = "red";
+    }
+    if (role === "host"){
+        answerer = data.answerer
+        yes.disabled = false;
+        no.disabled = false;
     }
 });
 
