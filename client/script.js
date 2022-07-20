@@ -186,9 +186,16 @@ socket.on("someone.answering", (data) => {
 });
 
 const onNextRound = () => {
-    answer.disabled = true;
-    answer.style.background = "white";
-    canAnswer = true;
+    if (role === "contestant"){
+        answer.disabled = true;
+        answer.style.background = "white";
+        canAnswer = true;
+    }
+    else {
+        allow.disabled = true;
+        yes.disabled = true;
+        no.disabled = true;
+    }
 }
 socket.on("next_round", () => {
     onNextRound();

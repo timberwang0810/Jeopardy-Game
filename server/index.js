@@ -16,7 +16,8 @@ let numPlayers = 0;
 let firstid = "";
 let hostid = "";
 
-let game = [];
+// let game = [];
+let promise = null;
 let numIncorrect = 0;
 
 app.use(express.static(__dirname + "/../client/"));
@@ -58,6 +59,7 @@ io.on('connection', (socket) => {
     });
     if (numPlayers == 0){
         socket.emit("first.assign");
+        promise = getQuestions();
         firstid = id;
     }
     numPlayers++;
@@ -84,7 +86,7 @@ io.on('connection', (socket) => {
         console.log("someone is claiming host")
         if (hostid === ""){
             hostid = socket.id
-            getQuestions()
+            promise
                 .then((game) => {
                     io.emit("host.assigned", {
                         hostid: socket.id,
@@ -223,11 +225,11 @@ const getQuestions = async () => {
     //     const catTitle = categories[key];
     //     game[catTitle] = val;
     // }
-    game = questions;
+    // game = questions;
     for (const obj of questions){
         console.log(JSON.stringify(obj, null, 2));
     }
-    return game;
+    return questions;
 }
 
 const getRandomCategory = async () => {
