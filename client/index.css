@@ -76,12 +76,26 @@ body {
 	justify-content: center;
 }
 
+.flexvert{
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+}
+
 .category {
     color: white;
 }
 
 .question {
     color: #FAAE46;
+}
+
+.player {
+    color: #de431f;
+}
+
+.money {
+    color: greenyellow;
 }
 
 .main-table{
