@@ -60,7 +60,6 @@ body {
 }
 
 .cell {
-	font-size: 24px;
 	outline: 5px solid black;
 	padding: 4px;
 	margin: 4px;
@@ -83,10 +82,17 @@ body {
 }
 
 .category {
+    font-size: 24px;
     color: white;
 }
 
+.questionValue {
+    font-size: 24px;
+    color: #FAAE46;
+}
+
 .question {
+    font-size: 12px;
     color: #FAAE46;
 }
 
@@ -123,4 +129,12 @@ body {
 }
 .shown{
     display: block;
+}
+
+.pop_svg_div{
+    background-color: #252DB0;
+    border: 5px solid black;
+    position: absolute;
+    overflow: hidden;
+    z-index: 1;
 }
