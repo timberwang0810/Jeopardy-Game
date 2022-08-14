@@ -137,4 +137,8 @@ body {
     position: absolute;
     overflow: hidden;
     z-index: 1;
+    font-size: 20px;
+    color: white;
+    display: flex;
+    align-items: center;
 }

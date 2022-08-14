@@ -176,79 +176,26 @@ function pop_up(data, x, ysmall, ybig) {
     const svg_div = d3.select('body') 
         .append("div")
         .attr("class", "pop_svg_div")
+        .attr("id", "pop_svg_div")
 
-
-    const svg = svg_div.append("svg")
-        .attr("class", "pop_svg")
-
-    const margin = 20;
-
-    const g = svg.append('g')
-    // create group element g and move graph to the right and down to make margins
-        .attr('transform', `translate(${margin},${margin})`);
-
-    // tooltip text
-
-    let lineHeight = 20
-
-    // text wraps
-    function wrap(text, width) {
-        text.each(function() {
-            let text = d3.select(this),
-                words = text.text().split(/\s+/).reverse(),
-                word,
-                line = [],
-                lineNumber = 0,
-                y = text.attr("y"),
-                dy = parseFloat(text.attr("dy")),
-                tspan = text.text(null).append("tspan")
-                    .attr("x", 0)
-                    .attr("y", y)
-                    .attr("dy", 0)
-                    .attr('fill', 'white');
-                tspan.style('font-size', '18px')
-            while (word = words.pop()) {
-                line.push(word);
-                tspan.text(line.join(" "));
-                if (tspan.node().getComputedTextLength() > width) {
-                    line.pop();
-                    tspan.text(line.join(" "));
-                    line = [word];
-                    tspan = text.append("tspan")
-                        .attr("x", 0)
-                        .attr("y", y)
-                        .attr('fill', 'white')
-                        .attr("dy", ++lineNumber * lineHeight)
-                        .text(word);
-                    tspan.style('font-size', '18px')
-            }
-          }
-        });
-      }
-      
-    g
+    svg_div 
         .append("text")
-        .attr("y", 10)
         .attr("class","js_popup-text")
-        .text(data)
-        .call(wrap, size-margin);
-
-    const my_text = g.selectAll(".js_popup-text")
-
-    const tspan_nodes = my_text.selectAll('tspan').nodes()
-    
-    const lowy = +(tspan_nodes[tspan_nodes.length-1].getAttribute("dy"))+(lineHeight*2)
-
-    svg.attr("height", lowy)  
-
-    const y = findSmall(ysmall, ybig, lowy)
+        .text(data);
 
     // style
     svg_div
-        .style("height", lowy+"px")
-        .style("width", size+"px")
-        .style("top", y+'px')
-        .style("left", x+'px')
+        .style("width", size+"px") //size
+
+    const mydiv  = document.getElementById('pop_svg_div')
+
+    let mysize = mydiv.getBoundingClientRect().height
+    const y = findSmall(ysmall, ybig, mysize)
+
+    // style
+    svg_div
+        .style("top", y+'px') //y
+        .style("left", x+'px') //x
 
     // TRANSITION
 
@@ -264,8 +211,6 @@ function pop_up(data, x, ysmall, ybig) {
     const newHeight = newBottom-newTop;
     const newWidth = newRight - newLeft;
 
-
-
     const t = d3.transition()
         .duration(1000)
         .ease(d3.easeLinear);
@@ -274,14 +219,10 @@ function pop_up(data, x, ysmall, ybig) {
         .style("height", newHeight+"px")
         .style("width", newWidth+"px")
         .style("top", newTop+'px')
-        .style("left", newLeft+'px') 
-        
-    svg.transition(t).delay(500)
-        .attr("height", newHeight+"px") 
-        .attr("width", newWidth+"px")
+        .style("left", newLeft+'px'); 
 
-    const tspans = my_text.selectAll('tspan');
+    const text = svg_div.selectAll('text');
 
-    tspans.transition(t).delay(500).style('font-size', '54px');
+    text.transition(t).delay(500).style('font-size', '46px');
 
 }
