@@ -87,6 +87,7 @@ export default function createTable(data){
             if (isClickable){
                 const elementLocation = this.getBoundingClientRect();
                 const question = data.filter(d => d.category==this.getAttribute("category"))[0][this.getAttribute('value')].question
+                const answer = data.filter(d => d.category==this.getAttribute("category"))[0][this.getAttribute('value')].answer
                 // const myCell = d3.select(this);
                 // myCell.html(question)
                 // myCell.attr('class', 'cell question')
@@ -94,17 +95,23 @@ export default function createTable(data){
                 const ysmall = elementLocation.top
                 const ybig = elementLocation.bottom
                 pop_up(question, x, ysmall, ybig)
+                const answerBox = d3.select('.textbox')
+                answerBox.append('button')
+                    .attr('id', 'viewAnswer')
+                    .attr('type', 'button')
+                    .text('View Answer');
+
+                const viewAnswerText = function(){
+                    answerBox.html(answer)
+                }
+
+                const answerButton = d3.select('#viewAnswer')
+                answerButton.on('click', viewAnswerText)
+
             }
         }
     }
 
-    // on double click call up answer
-    const dblclick = function(){
-        if (isClickable){
-            const answer = data.filter(d => d.category==this.getAttribute("category"))[0][this.getAttribute('value')].answer
-            d3.select('.textbox').html(answer)
-        }
-	}
     const clear = function(){
         d3.select('.textbox').html('')
         const prev = d3.selectAll(".pop_svg_div") // clear if svg exists
@@ -116,7 +123,7 @@ export default function createTable(data){
     const cells = d3.selectAll('.questionValue')
 
 
-    cells.on("mouseover", mover).on("mouseout", mout).on('click', mclick).on('dblclick', dblclick);
+    cells.on("mouseover", mover).on("mouseout", mout).on('click', mclick)//.on('dblclick', dblclick);
     
 
     const clickable = function(){
